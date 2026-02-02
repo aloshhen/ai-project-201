@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./globals.css";
+
+@layer base {
+  body {
+    @apply overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .noise-texture {
+    position: relative;
+  }
+  
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4.5' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  
+  .neo-button {
+    background: #1a1a1a;
+    box-shadow: 
+      8px 8px 16px #0d0d0d,
+      -8px -8px 16px #272727;
+    transition: all 0.3s ease;
+  }
+  
+  .neo-button:hover {
+    box-shadow: 
+      6px 6px 12px #0d0d0d,
+      -6px -6px 12px #272727;
+    transform: translateY(-2px);
+  }
+  
+  .neo-button:active {
+    box-shadow: 
+      inset 4px 4px 8px #0d0d0d,
+      inset -4px -4px 8px #272727;
+    transform: translateY(0);
+  }
+  
+  .neo-card {
+    background: #1a1a1a;
+    box-shadow: 
+      12px 12px 24px #0d0d0d,
+      -12px -12px 24px #272727;
+  }
+  
+  .mobile-safe-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .telegram-safe-bottom {
+    padding-bottom: 5rem;
+  }
+}
